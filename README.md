@@ -9,7 +9,7 @@ cd Rally Exercise
 ```python
 import templar
 
-vars 		 = {'name': 'Darrell', 'age': 26, 'occupation': 'javascript ninja'}
+vars = {'name': 'Darrell', 'age': 26, 'occupation': 'javascript ninja'}
 template = 'Hi my name is ${name}! I am ${age} years old and I consider myself to be a ${occupation}.'
 
 sentence = templar.parse(vars, template)
