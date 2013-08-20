@@ -17,3 +17,8 @@ print sentence
 
 # >> 'Hi my name is Darrell! I am 26 years old and I consider myself to be a javascript ninja.'
 ```
+
+Run Test Sute
+```
+python test.py
+```
