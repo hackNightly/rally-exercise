@@ -5,38 +5,38 @@ keyRegx = '\${([$a-zA-Z0-9_-]+)}{1}'
 
 
 def parse(vars, template):
-	""" 
-	Inserts variables into template and returns template
-	@return String 
-	"""
-	words = _get_words(template)
+  """ 
+  Inserts variables into template and returns template
+  @return String 
+  """
+  words = _get_words(template)
 
-	for match in words:
-		token = match.group(0)
-		key   = _get_token_key(token)
+  for match in words:
+    token = match.group(0)
+    key   = _get_token_key(token)
 
-		try:
-			var = str(vars[key])
-			template = template.replace(token, var)
-		except KeyError:
-			print 'Error: Variable ' + key + ' is required.'
-			raise
-	
-	return template	
+    try:
+      var = str(vars[key])
+      template = template.replace(token, var)
+    except KeyError:
+      print 'Error: Variable ' + key + ' is required.'
+      raise
+  
+  return template 
 
 def _get_words(template):
-	"""
-	Splits the template on spaces and returns a dictionary of index:words
-	@return Iter
-	"""
-	return re.finditer(tokenRegx, template)
+  """
+  Splits the template on spaces and returns a dictionary of index:words
+  @return Iter
+  """
+  return re.finditer(tokenRegx, template)
 
 def _get_token_key(token):
-	""" 
-	Finds key within token string in template
-	@return String 
-	"""
-	matches = re.match(keyRegx, token).groups()
+  """ 
+  Finds key within token string in template
+  @return String 
+  """
+  matches = re.match(keyRegx, token).groups()
 
-	return matches[0]
+  return matches[0]
 
