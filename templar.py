@@ -4,7 +4,7 @@ tokenRegx = '(\${[$a-zA-Z0-9_-]+})'
 keyRegx = '\${([$a-zA-Z0-9_-]+)}{1}'
 
 
-def parse(vars, template):
+def parse(vars = {}, template = ''):
   """ 
   Inserts variables into template and returns template
   @return String 
